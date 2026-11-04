@@ -1,0 +1,27 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio, Rider and VS Code settings
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+
+# Test results
+TestResults/
+
+# Local databases and data-protection keys
+*.mdf
+*.ldf
+*.db
+keys/
+
+# Secrets and local settings
+.env
+appsettings.*.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
