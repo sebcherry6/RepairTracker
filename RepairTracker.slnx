@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path="ci.yml" />
+  </Folder>
   <Project Path="RepairTracker.Domain/RepairTracker.Domain.csproj" />
   <Project Path="RepairTracker.Tests/RepairTracker.Tests.csproj" />
   <Project Path="RepairTracker.Web/RepairTracker.Web.csproj" />
