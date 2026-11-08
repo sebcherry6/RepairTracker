@@ -61,6 +61,12 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 var app = builder.Build();
 
+// Bring the database up to date, then make sure the roles exist
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await db.Database.MigrateAsync();
+}
 await RoleSeeder.SeedAsync(app.Services);
 
 // Configure the HTTP request pipeline.
@@ -86,3 +92,6 @@ app.MapControllerRoute(
 
 
 app.Run();
+
+// Lets the test project start the app
+public partial class Program { }
