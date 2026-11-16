@@ -20,8 +20,12 @@ builder.Services.AddAuthorization(options =>
         .Build();
 });
 
+// Lets tests pretend it's a different time (e.g. 8 days later for expired invites)
+builder.Services.AddSingleton(TimeProvider.System);
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
@@ -66,7 +70,16 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await db.Database.MigrateAsync();
+
 }
+
+// Never send this site's URLs (which can contain invite tokens) to other websites
+app.Use(async (context, next) =>
+{
+    context.Response.Headers["Referrer-Policy"] = "same-origin";
+    await next();
+});
+
 await RoleSeeder.SeedAsync(app.Services);
 
 // Configure the HTTP request pipeline.

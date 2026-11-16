@@ -36,7 +36,13 @@ else
                     </td>
                     <td>@p.Town</td>
                     <td>@p.Postcode</td>
-                    <td class="text-end"><a asp-action="Edit" asp-route-id="@p.Id">Edit</a></td>
+                    <td class="text-end">
+                        <a asp-action="Edit" asp-route-id="@p.Id">Edit</a>
+                        <form asp-controller="Invites" asp-action="CreateForTenant" asp-route-propertyId="@p.Id"
+                              method="post" class="d-inline ms-3">
+                            <button type="submit" class="btn btn-link p-0 align-baseline">Invite tenant</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>

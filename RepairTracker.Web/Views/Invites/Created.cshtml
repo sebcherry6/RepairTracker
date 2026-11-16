@@ -1,0 +1,24 @@
+﻿@model InviteCreatedViewModel
+@{
+    ViewData["Title"] = "Invite created";
+}
+
+<h1>Invite link for @Model.PropertyName</h1>
+
+<p>
+    Send this link to your tenant. It works once and expires on
+    <strong>@Model.ExpiresAtUtc.ToString("dd/MM/yyyy")</strong>.
+</p>
+
+<div class="mb-3 col-md-8">
+    <label for="invite-link" class="form-label">Invite link</label>
+    <input id="invite-link" class="form-control" value="@Model.Link" readonly />
+    <div class="form-text">Click the box, press Ctrl + A then Ctrl + C to copy.</div>
+</div>
+
+<div class="alert alert-warning col-md-8">
+    Copy it now. For security, the link isn't stored, so it can't be shown again.
+    If it's lost, just create a new one.
+</div>
+
+<a asp-controller="Properties" asp-action="Index">Back to properties</a>
