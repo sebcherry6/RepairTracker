@@ -1,0 +1,12 @@
+﻿@model PropertyInput
+@{
+    ViewData["Title"] = "Add property";
+}
+
+<h1>Add property</h1>
+
+<form asp-action="Create" method="post" class="col-md-6">
+    <partial name="_Form" model="Model" />
+    <button type="submit" class="btn btn-primary">Add property</button>
+    <a asp-action="Index" class="btn btn-link">Cancel</a>
+</form>

@@ -1,0 +1,44 @@
+﻿@model List<RepairTracker.Domain.Property>
+@{
+    ViewData["Title"] = "Properties";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Your properties</h1>
+    <a asp-action="Create" class="btn btn-primary">Add property</a>
+</div>
+
+@if (TempData["Status"] is string status)
+{
+    <div class="alert alert-success">@status</div>
+}
+
+@if (Model.Count == 0)
+{
+    <p class="text-muted">You haven't added any properties yet. Add your first one to start tracking repairs.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr><th>Property</th><th>Town</th><th>Postcode</th><th></th></tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>
+                        @(p.Nickname ?? p.AddressLine1)
+                        @if (p.Nickname is not null)
+                        {
+                            <div class="small text-muted">@p.AddressLine1</div>
+                        }
+                    </td>
+                    <td>@p.Town</td>
+                    <td>@p.Postcode</td>
+                    <td class="text-end"><a asp-action="Edit" asp-route-id="@p.Id">Edit</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

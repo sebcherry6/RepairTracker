@@ -1,0 +1,34 @@
+﻿@model PropertyInput
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="mb-3">
+    <label asp-for="Nickname" class="form-label"></label>
+    <input asp-for="Nickname" class="form-control" placeholder="e.g. Flat 3, Leith Walk" />
+    <span asp-validation-for="Nickname" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="AddressLine1" class="form-label"></label>
+    <input asp-for="AddressLine1" class="form-control" autocomplete="address-line1" />
+    <span asp-validation-for="AddressLine1" class="text-danger"></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for="AddressLine2" class="form-label"></label>
+    <input asp-for="AddressLine2" class="form-control" autocomplete="address-line2" />
+    <span asp-validation-for="AddressLine2" class="text-danger"></span>
+</div>
+
+<div class="row">
+    <div class="col-md-7 mb-3">
+        <label asp-for="Town" class="form-label"></label>
+        <input asp-for="Town" class="form-control" autocomplete="address-level2" />
+        <span asp-validation-for="Town" class="text-danger"></span>
+    </div>
+    <div class="col-md-5 mb-3">
+        <label asp-for="Postcode" class="form-label"></label>
+        <input asp-for="Postcode" class="form-control" autocomplete="postal-code" />
+        <span asp-validation-for="Postcode" class="text-danger"></span>
+    </div>
+</div>
