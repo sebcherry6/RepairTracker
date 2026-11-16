@@ -86,9 +86,9 @@ How we work: Sebastian writes the code for each milestone on its own branch and 
 
 | Milestone | Status |
 | --- | --- |
-| M1 Skeleton | Not started |
-| M2 Properties | Not started |
-| M3 Invitations and tenancies | Not started |
+| M1 Skeleton | DONE |
+| M2 Properties | DONE |
+| M3 Invitations and tenancies | Started |
 | M4 Reporting issues | Not started |
 | M5 Issue workflow | Not started |
 | M6 Contractors | Not started |
